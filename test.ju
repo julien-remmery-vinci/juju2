@@ -1,0 +1,22 @@
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int a = 5;
+    int b = 6;
+    int c = a + b;
+
+    if (a == 5) {
+        return a;
+    }
+    else if (b == 6) {
+        return b;
+    }
+    else {
+        if (a || b && c) {
+            return c;
+        }
+    }
+    return 0;
+}
