@@ -30,7 +30,7 @@ pub fn lex(mut input_file: File) -> Result<Vec<Token>, LexerError> {
                 token.clear();
             }
             if !char_seq.is_empty() {
-                if char_seq.contains(char) {
+                if char_seq.contains(char) && !"{}".contains(char){
                     char_seq.push(char);
                 }
                 else {
