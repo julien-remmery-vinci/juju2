@@ -5,6 +5,8 @@ use lexer::lexer::lex;
 
 pub mod error;
 pub mod lexer;
+pub mod parser;
+pub mod tests;
 
 fn main() -> Result<(), JError> {
     let input_file = fs::OpenOptions::new()
