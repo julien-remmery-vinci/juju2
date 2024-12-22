@@ -1,4 +1,6 @@
 #[derive(Debug)]
 pub enum ParserError {
-    BadOperation(String),
+    NotAnOperation(&'static str),
+    NotADataType(&'static str),
+    NotAKeyword(&'static str),
 }
