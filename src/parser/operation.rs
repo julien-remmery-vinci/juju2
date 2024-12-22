@@ -10,8 +10,8 @@ pub enum Operation {
 }
 
 impl Operation {
-    pub fn new(
-        str_op: &str
+    pub fn parse(
+        str_op: &'static str
     ) -> Result<Operation, ParserError> {
         match str_op {
             "+" => Ok(Operation::Add),
@@ -19,7 +19,7 @@ impl Operation {
             "*" => Ok(Operation::Mul),
             "/" => Ok(Operation::Div),
             "^^" => Ok(Operation::Pow),
-            _ => Err(ParserError::BadOperation(str_op.to_string()))
+            _ => Err(ParserError::NotAnOperation(str_op))
         }
     }
 }
