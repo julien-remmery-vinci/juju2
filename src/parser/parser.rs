@@ -1,9 +1,12 @@
 use crate::lexer::token::Token;
 
-use super::error::ParserError;
+use super::{error::ParserError, program::Program};
 
 pub fn parse(
-    tokens: Vec<Token>
-) -> Result<(), ParserError> {
-    Ok(())
+    _tokens: Vec<Token>
+) -> Result<Program, ParserError> {
+    let program: Program = Program {
+        expressions: Vec::new()
+    };
+    Ok(program)
 }
