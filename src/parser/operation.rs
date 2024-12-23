@@ -1,6 +1,6 @@
 use super::error::ParserError;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub enum Operation {
     Add,
     Sub,
@@ -11,15 +11,15 @@ pub enum Operation {
 
 impl Operation {
     pub fn parse(
-        str_op: &'static str
+        str: String
     ) -> Result<Operation, ParserError> {
-        match str_op {
+        match str.as_str() {
             "+" => Ok(Operation::Add),
             "-" => Ok(Operation::Sub),
             "*" => Ok(Operation::Mul),
             "/" => Ok(Operation::Div),
-            "^^" => Ok(Operation::Pow),
-            _ => Err(ParserError::NotAnOperation(str_op))
+            "**" => Ok(Operation::Pow),
+            _ => Err(ParserError::NotAnOperation(str))
         }
     }
 }

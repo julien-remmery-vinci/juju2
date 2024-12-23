@@ -5,38 +5,38 @@ mod datatype_parsing {
 
     #[test]
     fn parse_int() -> Result<(), ParserError> {
-        assert_eq!(DataType::parse("int")?, DataType::Integer);
+        assert_eq!(DataType::parse("int".to_string())?, DataType::Integer);
         Ok(())
     }
 
     #[test]
     fn parse_double() -> Result<(), ParserError> {
-        assert_eq!(DataType::parse("double")?, DataType::Double);
+        assert_eq!(DataType::parse("double".to_string())?, DataType::Double);
         Ok(())
     }
 
     #[test]
     fn parse_float() -> Result<(), ParserError> {
-        assert_eq!(DataType::parse("float")?, DataType::Float);
+        assert_eq!(DataType::parse("float".to_string())?, DataType::Float);
         Ok(())
     }
 
     #[test]
     fn parse_char() -> Result<(), ParserError> {
-        assert_eq!(DataType::parse("char")?, DataType::Char);
+        assert_eq!(DataType::parse("char".to_string())?, DataType::Char);
         Ok(())
     }
 
     #[test]
     fn parse_string() -> Result<(), ParserError> {
-        assert_eq!(DataType::parse("string")?, DataType::String);
+        assert_eq!(DataType::parse("string".to_string())?, DataType::String);
         Ok(())
     }
 
     #[test]
     fn parse_unknown() {
-        let tested = "unknown_type";
-        let result = DataType::parse(tested);
+        let tested = "unknown_type".to_string();
+        let result = DataType::parse(tested.clone());
 
         match result {
             Err(ParserError::NotADataType(str)) => {

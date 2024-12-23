@@ -7,9 +7,9 @@ pub enum Keyword {
 
 impl Keyword {
     pub fn parse(
-        str: &'static str
+        str: String
     ) -> Result<Keyword, ParserError> {
-        match str {
+        match str.as_str() {
             "return" => Ok(Keyword::Return),
             _ => Err(ParserError::NotAKeyword(str))
         } 

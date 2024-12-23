@@ -11,9 +11,9 @@ pub enum DataType {
 
 impl DataType {
     pub fn parse(
-        str: &'static str
+        str: String
     ) -> Result<DataType, ParserError> {
-        match str {
+        match str.as_str() {
             "int" => Ok(DataType::Integer),
             "double" => Ok(DataType::Double),
             "float" => Ok(DataType::Float),
