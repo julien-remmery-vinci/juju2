@@ -1,4 +1,4 @@
-use std::fs;
+use std::{fs::File, io};
 
 use error::error::JError;
 use lexer::lexer::lex;
@@ -9,13 +9,10 @@ pub mod parser;
 pub mod tests;
 
 fn main() -> Result<(), JError> {
-    let input_file = fs::OpenOptions::new()
-        .read(true)
-        .open("test.ju")
-        .map_err(JError::FileOpenError)?;
-    let tokens: Vec<lexer::token::Token> = lex(input_file).map_err(JError::LexerError)?;
-    for token in tokens {
-        println!("Token: {}", token.value);
-    }
+    let file_path = "test.ju";
+    let file = File::open(file_path).map_err(JError::FileOpenError)?;
+    let mut reader= io::BufReader::new(file);
+
+    let tokens: Vec<lexer::token::Token> = lex(&mut reader).map_err(JError::LexerError)?;
     Ok(())
 }
